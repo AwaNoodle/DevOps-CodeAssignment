@@ -22,7 +22,14 @@ You are expected to come up with an approach to building and deploying this web 
 4. Production environment
 
 
-Your script should be able to build the application, run the unit tests and then deploy the application remotely with all the configuration settings updated correctly. 
+Your script should be able to build the application, run the unit tests and then deploy the application remotely with all the configuration settings updated correctly. Assume that site does not exist on the server and you have administrator rights on the server.  
+
+Also keep following guidelines in mind
+
+1. Clearly defined deployment steps
+2. Easily extendible
+3. Feel free to use any language that will work on Windows Server 2008/2012
+4. Give notes for any security consideration 
 
 Configuration Settings
 ======================
@@ -33,6 +40,4 @@ Application has following information stored in the configuration file
 2. Password
 
 
-We would like to be able to use different configuration settings for different environments. It is expected that scripts manage this aspect with least manual intervention. 
-
- 
+We would like to be able to use different configuration settings for different environments. It is expected that scripts manage this aspect with least manual intervention.
