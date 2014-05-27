@@ -1,7 +1,7 @@
 DevOps CodeAssignment
 =====================
 
-This repository contains a sample MVC4 application that we would use to access how would you approach building and deploying a .NET web application in continuous integration environment. 
+This repository contains a sample MVC4 application that we would use to assess how you approach build and deploy steps for a .NET web application in continuous integration environment. 
 
 What is needed to run the application?
 =====================================
@@ -22,7 +22,7 @@ You are expected to come up with an approach to building and deploying this web 
 4. Production environment
 
 
-Your script should be able to build the application, run the unit tests and then deploy the application remotely with all the configuration settings updated correctly. Assume that site does not exist on the server and you have administrator rights on the server.  
+Your script should be able to build the application, run the unit tests and then deploy the application remotely with all the configuration settings updated correctly. Assume that site does not exist on the server and you have administration rights on the servers.  
 
 Also keep following guidelines in mind
 
