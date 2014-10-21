@@ -11,6 +11,7 @@ $ErrorActionPreference = "Stop"
 $DebugPreference = "Continue"
 
 $nunitLocation = "$PSScriptRoot\NUnit.Runners.2.6.3\tools\nunit-console.exe"
+$nugetLocation = "$PSScriptRoot\nuget\nuget.exe"
 $baseModulePath = "$PSScriptRoot\modules"
 
 Import-Module "$baseModulePath\teamcity.psm1"
@@ -24,10 +25,15 @@ TaskSetup {
 }
 
 Task Invoke-Commit -depends Invoke-Compile, Invoke-UnitTests {
-    # Need to roll back changes	
+    # rollback the versioning changes
+    & git.exe checkout -- $solutionFolder
 }
 
-Task Invoke-Compile -depends Invoke-HardcoreClean, Set-VersionNumber {
+Task Invoke-NugetRestore {
+    & $nugetLocation restore $solutionFile
+}
+
+Task Invoke-Compile -depends Invoke-HardcoreClean, Invoke-NugetRestore, Set-VersionNumber {
 
 	Write-Host "Building ""$solutionFile"" in ""$configMode"" mode."
 	Invoke-MsBuild -Path $solutionFile -MsBuildParameters "/t:ReBuild /t:Clean /p:Configuration=$configMode /p:PlatformTarget=""AnyCPU"" /verbosity:d"
